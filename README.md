@@ -77,10 +77,34 @@ shard for that particular month.
 
 <div align="center">
 <img width="601" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/ce53b502-9f6f-4947-b888-55373cd4713c">
-</div>div>
+</div>
 
+# 9. What is Caching? What are the various cache update strategies available in caching?
+Caching refers to the process of storing file copies in a temporary storage location called cache which helps in accessing data more quickly thereby reducing site latency. The cache can only store a limited amount of data. Due to this, it is important to determine cache update strategies that are best suited for the business requirements. Following are the various caching strategies available:
 
+### Cache-aside: 
+In this strategy, our application is responsible to write and read data from the storage. Cache interaction with the storage is not direct.
 
+<div align="center">
+<img width="300" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/c2365f9b-dd4b-4ef0-af72-b2a6dde74968">
+</div>
 
+### Write-through: 
+In this strategy, the cache will be considered as the main data store by the system and the system reads and writes data into it. 
 
+<div align="center">
+<img width="300" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/bb6a3e56-09d5-4be7-bd6c-abe3f93b8254">
+</div>
+
+### Write-behind (write-back):
+In this strategy, the application does the following steps:
+<div align="center">
+<img width="300" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/ef6de0f3-7e67-4393-a52e-6ace8046e339">
+</div>
+
+### Refresh-ahead:
+Using this strategy, we can configure the cache to refresh the cache entry automatically before its expiration.
+<div align="center">
+<img width="300" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/7d9da52d-e2e5-422e-821e-b40365e3686d">
+</div>
 
