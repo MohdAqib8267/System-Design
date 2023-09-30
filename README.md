@@ -99,7 +99,7 @@ In this strategy, the cache will be considered as the main data store by the sys
 ### Write-behind (write-back):
 In this strategy, the application does the following steps:
 <div align="center">
-<img width="300" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/ef6de0f3-7e67-4393-a52e-6ace8046e339">
+<img width="400" alt="Screenshot 2023-10-01 000412" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/ef6de0f3-7e67-4393-a52e-6ace8046e339">
 </div>
 
 ### Refresh-ahead:
