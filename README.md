@@ -1,3 +1,30 @@
+
+
+
+<img width="586" alt="image" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/0abd6e8b-946d-4f4d-8a33-ef19ee666a59">
+So we have one service which is answer to everything, and that is Amazon EC2.
+<img width="532" alt="image" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/2dd25545-4337-415c-a311-9be2166599ff">
+There is a misconception that you cannot run microservices on Amazon EC2, which is not correct. So as we saw before, each microservices can be running in their own Amazon EC2 and each of those Amazon EC2 could be part of different scaling groups with different scaling criteria.
+You can select appropriate Amazon EC2 family based on the nature of the microservices.So some microservices memory intensive, you can select a higher memory EC2 and you can scale best of memory instead of CPU.
+
+<img width="517" alt="image" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/c42219ee-8b5e-4f1a-ac81-796e96d5e3e3">
+You can use Elastic Load Balancer or Amazon API Gateway to host those microservices beyond EC2, for modern application development, we can look at the serverless alternative, which is AWS Lambda, where each microservices backend will be implemented in separate lambda functions. Remember that lambda scales automatically.
+So there is no scaling group in this case, and lambda could also be fronted by Elastic Load Balancer or Amazon API Gateway.
+<img width="550" alt="image" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/7f4c65ff-58af-42e4-b31d-3afbddffeeb1">
+
+
+<img width="568" alt="image" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/8b75a723-839b-42d3-b3c2-ea2896b3b36a">
+Now, another popular choice is using containers. 
+You can containerised your application and run within Amazon Elastic Kubernets Service or Amazon Elastic Container Service or ECS. And in this case as well, you're confronted by using Elastic Load Balancer or Amazon API Gateway. So let's zoom in into the Kubernetes part because Kubernetes is super popular right now, and this might come up in your interview.
+
+<img width="582" alt="image" src="https://github.com/MohdAqib8267/System-Design/assets/106628860/dae0fe5a-1e66-4778-a59a-23f840f99553">
+So for Kubernetes, each micro service will be fronted by different services, so shall we say,we have Service A, B and Service C and the code for each microservice will be running in a container and this container will run in a pod and all these will be fronted by a single ingress, which will be an application load balancer.
+
+![image](https://github.com/MohdAqib8267/System-Design/assets/106628860/c056e07e-3010-45a9-b242-3491cc1c02e6)
+
+since each microservices is independent of each other and can even be coded in different programming languages. You can mix and match all these services. So, for example, store/get can run on a pod when your back-end of the microservices is Dockerised into a container store.store/post can be hosted on Amazon EC2 and stored/delete can run on A.W.S lambda.
+
+
 # System-Design
 The process of establishing system aspects such as modules, architecture, components and their interfaces, and data for a system based on specified requirements is known as system design. It is the process of identifying, creating, and designing systems that meet a company’s or organization’s specific objectives and expectations. Systems design is more about system analysis, architectural patterns, APIs, design patterns, and glueing it all together than it is about coding.
 # 1. What is CAP theorem?
