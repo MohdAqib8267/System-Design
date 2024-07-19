@@ -36,8 +36,8 @@ Rate limiting helps protects services from being overwhelmed by too many request
 The Token Bucket algorithm is one of the most popular and widely used rate limiting approaches due to its simplicity and effectiveness.
 
 ###### How It Works:
-Imagine a bucket that holds tokens.
-The bucket has a maximum capacity of tokens.
+Imagine a bucket that holds tokens.<br />
+The bucket has a maximum capacity of tokens.<br />
 Tokens are added to the bucket at a fixed rate (e.g., 10 tokens per second).
 When a request arrives, it must obtain a token from the bucket to proceed.
 If there are enough tokens, the request is allowed and tokens are removed.
@@ -111,14 +111,14 @@ app.listen(5000,()=>{
 })
 ```
 ###### Pros
-Relatively straightforward to implement and understand.
+Relatively straightforward to implement and understand. <br />
 Allows bursts of requests up to the bucket's capacity, accommodating short-term spikes.
 ###### Cons:
-The memory usage scales with the number of users if implemented per-user.
+The memory usage scales with the number of users if implemented per-user. <br />
 It doesn’t guarantee a perfectly smooth rate of requests.
 
 ### 1. Leaky Bucket Algorithm
-In the leaky bucket algorithm, requests are processed at a fixed rate.
+In the leaky bucket algorithm, requests are processed at a fixed rate. <br />
 A queue holds the requests to be processed following a First-In-First-Out(FIFO) manner.
 ![79d555be-f951-4086-9fad-84884f21f517_1088x724](https://github.com/user-attachments/assets/0bab009a-a02d-4579-a258-7db0d3dbfe97)
 
@@ -126,11 +126,11 @@ The algorithm works as follows:
 
 - When a request arrives, the system checks if the queue is full:
 If it is not full, the request is added to the queue.
-
+<br />
 If the queue is full, the request is dropped.
 
 - Requests are pulled from the queue and processed at regular intervals.
-Leaky bucket algorithm takes ** two parameters: **
+Leaky bucket algorithm takes **two parameters:**
 
 - Bucket size: equal to the queue size.
 - Outflow rate: how many requests can be processed at a fixed rate.
