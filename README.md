@@ -226,6 +226,23 @@ int main() {
 }
 ```
 
+
+# Fault tolerence:
+**Fault tolerence is the abolity of system to servive when a failure or error occurs.** <br/>
+Example:here’s a simple demonstration of comparative fault tolerance in the database layer. In the diagram below,
+![fault-tolerance-comparative-application-architecture-illustration](https://github.com/user-attachments/assets/988a5b94-5a87-4e73-9c6e-ef5f4d37f1ef)
+
+In this scenario, Application 2 is more fault tolerant. If its primary database goes offline, it can switch over to the standby replica and continue operating as usual.
+<br/>
+Application 1 is not fault tolerant. If its database goes offline, all application features that require access to the database will cease to function.
+
+* Fault tolerance can also be achieved in a variety of ways.
+ ** Hardware Faults:** suppose my cart fetching cart items from one DB. and my DB has been failed. <br/>
+ Faults: DB Fails  <br/>
+ Failure: Data Inaccessable <br/>
+ solution: Make replicas of DB <br/>
+** Software Faults:** Multiple instances of software capable of doing the same work. For example, many modern applications make use of containerization platforms such as Kubernetes so that they can run multiple instances of software services. One reason for this is so that if one instance encounters an error or goes offline, traffic can be routed to other instances to maintain application functionality. <br/>
+**Human Errors**
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
