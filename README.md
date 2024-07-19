@@ -236,7 +236,7 @@ In this scenario, Application 2 is more fault tolerant. If its primary database 
 <br/>
 Application 1 is not fault tolerant. If its database goes offline, all application features that require access to the database will cease to function.
 
-* Fault tolerance can also be achieved in a variety of ways.
+* Fault tolerance can also be achieved in a variety of ways. <br/>
  ** Hardware Faults:** suppose my cart fetching cart items from one DB. and my DB has been failed. <br/>
  Faults: DB Fails  <br/>
  Failure: Data Inaccessable <br/>
