@@ -110,7 +110,30 @@ app.listen(5000,()=>{
     job.start();
 })
 ```
+###### Pros
+Relatively straightforward to implement and understand.
+Allows bursts of requests up to the bucket's capacity, accommodating short-term spikes.
+###### Cons:
+The memory usage scales with the number of users if implemented per-user.
+It doesn’t guarantee a perfectly smooth rate of requests.
 
+### 1. Leaky Bucket Algorithm
+In the leaky bucket algorithm, requests are processed at a fixed rate.
+A queue holds the requests to be processed following a First-In-First-Out(FIFO) manner.
+![79d555be-f951-4086-9fad-84884f21f517_1088x724](https://github.com/user-attachments/assets/0bab009a-a02d-4579-a258-7db0d3dbfe97)
+
+The algorithm works as follows:
+
+- When a request arrives, the system checks if the queue is full:
+If it is not full, the request is added to the queue.
+
+If the queue is full, the request is dropped.
+
+- Requests are pulled from the queue and processed at regular intervals.
+Leaky bucket algorithm takes ** two parameters: **
+
+- Bucket size: equal to the queue size.
+- Outflow rate: how many requests can be processed at a fixed rate.
 
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
