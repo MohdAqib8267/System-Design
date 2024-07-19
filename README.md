@@ -236,12 +236,12 @@ In this scenario, Application 2 is more fault tolerant. If its primary database 
 <br/>
 Application 1 is not fault tolerant. If its database goes offline, all application features that require access to the database will cease to function.
 
-* Fault tolerance can also be achieved in a variety of ways. <br/>
- ** Hardware Faults:** suppose my cart fetching cart items from one DB. and my DB has been failed. <br/>
+*Fault tolerance can also be achieved in a variety of ways. <br/>
+ **Hardware Faults:** suppose my cart fetching cart items from one DB. and my DB has been failed. <br/>
  Faults: DB Fails  <br/>
  Failure: Data Inaccessable <br/>
  solution: Make replicas of DB <br/>
-** Software Faults:** Multiple instances of software capable of doing the same work. For example, many modern applications make use of containerization platforms such as Kubernetes so that they can run multiple instances of software services. One reason for this is so that if one instance encounters an error or goes offline, traffic can be routed to other instances to maintain application functionality. <br/>
+**Software Faults**: Multiple instances of software capable of doing the same work. For example, many modern applications make use of containerization platforms such as Kubernetes so that they can run multiple instances of software services. One reason for this is so that if one instance encounters an error or goes offline, traffic can be routed to other instances to maintain application functionality. <br/>
 **Human Errors**
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
