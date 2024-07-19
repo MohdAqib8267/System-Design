@@ -38,10 +38,10 @@ The Token Bucket algorithm is one of the most popular and widely used rate limit
 ###### How It Works:
 Imagine a bucket that holds tokens.<br />
 The bucket has a maximum capacity of tokens.<br />
-Tokens are added to the bucket at a fixed rate (e.g., 10 tokens per second).
-When a request arrives, it must obtain a token from the bucket to proceed.
-If there are enough tokens, the request is allowed and tokens are removed.
-If there aren't enough tokens, the request is dropped.
+Tokens are added to the bucket at a fixed rate (e.g., 10 tokens per second).<br />
+When a request arrives, it must obtain a token from the bucket to proceed.<br />
+If there are enough tokens, the request is allowed and tokens are removed.<br />
+If there aren't enough tokens, the request is dropped.<br />
 
 ```
 import { CronJob } from "cron";
