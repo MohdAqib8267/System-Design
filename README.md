@@ -27,6 +27,91 @@ since each microservices is independent of each other and can even be coded in d
 
 # System-Design
 The process of establishing system aspects such as modules, architecture, components and their interfaces, and data for a system based on specified requirements is known as system design. It is the process of identifying, creating, and designing systems that meet a company’s or organization’s specific objectives and expectations. Systems design is more about system analysis, architectural patterns, APIs, design patterns, and glueing it all together than it is about coding.
+
+# Rate Limiting
+Rate limiting helps protects services from being overwhelmed by too many requests from a single user or client.
+## Rate Limiting Algorithms
+### 1. Token Bucket Algorithm
+![cea82243-07a3-48bc-a16b-1540cd175092_1204x1046](https://github.com/user-attachments/assets/73d72979-0dce-4bf3-852f-a136add7593b)
+The Token Bucket algorithm is one of the most popular and widely used rate limiting approaches due to its simplicity and effectiveness.
+
+###### How It Works:
+Imagine a bucket that holds tokens.
+The bucket has a maximum capacity of tokens.
+Tokens are added to the bucket at a fixed rate (e.g., 10 tokens per second).
+When a request arrives, it must obtain a token from the bucket to proceed.
+If there are enough tokens, the request is allowed and tokens are removed.
+If there aren't enough tokens, the request is dropped.
+
+```
+import { CronJob } from "cron";
+import express from 'express';
+
+const app = express();
+app.use(express.json());
+
+const RATE_LIMIT = 10;
+
+const token_bucket=[];
+
+//function to refill the bucket
+const refillBucket = () =>{
+    if(token_bucket.length < RATE_LIMIT){
+        token_bucket.push(Date.now());
+    }
+}
+
+// API endpoint to check the bucket's status
+app.get('/bucket',(req,res)=>{
+    res.json({
+        bucketLimit:RATE_LIMIT,
+        currentBucketSize: token_bucket.length,
+        bucket:token_bucket
+    })
+})
+
+//Middleware for rate limiting
+const rateLimitMiddleWare=(req,res,next)=>{
+    if(token_bucket.length>0){
+        const token = token_bucket.shift(); //Shift (remove) the first element of the array:
+        console.log(`Token ${token} is consumed...`);
+        res.set('X-RateLimiting-Remaining',token_bucket.length);
+        next();
+    }
+    else{
+        res.status(429).set('X-RateLimit-Remaining', 0).set('Retry-After', 2).json({
+            success: false,
+            message: 'Too many requests'
+        });
+    }
+}
+app.use(rateLimitMiddleWare);
+
+// Sample endpoint for testing rate limiting
+app.get('/test',(req,res)=>{
+    const ROCK_PAPER_SCISSORS = ['rock 🪨', 'paper 📃', 'scissors ✂️'];
+    const index = Math.floor(Math.random()*3);
+    const item = ROCK_PAPER_SCISSORS[index];
+
+    res.json({
+        success:true,
+        message:`You got ${item}`
+    })
+})
+
+// Cron job to periodically refill the bucket
+const job = new CronJob('*/2 * * * * *',()=>{
+    refillBucket();
+    
+})
+
+app.listen(5000,()=>{
+    console.log('server is running at port 5000');
+    job.start();
+})
+```
+
+
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
