@@ -328,7 +328,7 @@ For simple applications where the added complexity of WebSockets isn't justified
 WebSockets provide a full-duplex communication channel over a single, long-lived connection.
 <br/>
 Once the WebSocket connection is established, the server and client can send messages to each other independently and asynchronously, making it suitable for real-time, low-latency applications.
-![3a6f0751-b4a6-486a-86cb-9552c605544e_960x964](https://github.com/user-attachments/assets/d2a28933-f202-4cad-941f-04189eff15b3)
+![3a6f0751-b4a6-486a-86cb-9552c605544e_700x700](https://github.com/user-attachments/assets/d2a28933-f202-4cad-941f-04189eff15b3)
 ### How WebSockets Work
 1.The client initiates a WebSocket connection through a process called the WebSocket handshake.
 <br/>
