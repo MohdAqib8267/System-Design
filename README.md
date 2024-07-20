@@ -247,10 +247,11 @@ Application 1 is not fault tolerant. If its database goes offline, all applicati
 # What is Consensus in Distributed System?
 In a distributed system, multiple computers (known as nodes) are mutually connected with each other and collaborate with each other through message passing. Now, during computation, they need to agree upon a common value to coordinate among multiple processes. This phenomenon is known as Distributed Consensus.
 
-<img widht="50%" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6do-COi_H0dqaWtu7zVJCw.png" />
-<imgwidht="50%" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*LXXq91obzfYaY-yQJ84_vA.png" />
-<img widht="50%" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*s-6WGvm6vlIuEid4xMTSPg.png" />
-### Why is Consensus required?
+<img  src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6do-COi_H0dqaWtu7zVJCw.png" />
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*LXXq91obzfYaY-yQJ84_vA.png" />
+<img  src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*s-6WGvm6vlIuEid4xMTSPg.png" />
+
+### Why is Consensus required? <br/>
 In a distributed system, it may happen that multiple nodes are processing large computations distributedly and they need to know the results of each node to keep them updated about the whole system. In such a situation, the nodes need to agree upon a common value. This is where the requirement for consensus comes into the picture.
 
 ### Challenges in Distributed Consensus
