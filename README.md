@@ -248,6 +248,33 @@ Application 1 is not fault tolerant. If its database goes offline, all applicati
 In a distributed system, multiple computers (known as nodes) are mutually connected with each other and collaborate with each other through message passing. Now, during computation, they need to agree upon a common value to coordinate among multiple processes. This phenomenon is known as Distributed Consensus.
 
 <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6do-COi_H0dqaWtu7zVJCw.png" />
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*LXXq91obzfYaY-yQJ84_vA.png" />
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*s-6WGvm6vlIuEid4xMTSPg.png" />
+### Why is Consensus required?
+In a distributed system, it may happen that multiple nodes are processing large computations distributedly and they need to know the results of each node to keep them updated about the whole system. In such a situation, the nodes need to agree upon a common value. This is where the requirement for consensus comes into the picture.
+
+### Challenges in Distributed Consensus
+A distributed system can face mainly two types of failure.
+
+1.**Crash failure**
+2.**Byzantine failure**
+**Crash failure** occurs when a node is not responding to other nodes of the system due to some hardware or software or network fault. This is a very common issue in distributed systems and it can be handled easily by simply ignoring the node’s existence.
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*6RePWyW9-V8n8aSenmP3vA.png"/>
+
+**Byzantine failure** is a situation where one or more node is not crashed but behaves abnormally and forward a wrong message to different nodes, due to an internal or external attack on that node. Handling this kind of situation is complicated in the distributed system.
+<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*ra0k2v6m1wyOxwNTIZ_hdQ.png" />
+
+### Consensus Algorithms
+1. Paxos Algorithm (Learn in Later)
+2. Raft Algorithm
+3. Byzantine Fault Tolerance (BFT) Algorithms
+
+### Application of Distributed Consensus
+Consensus algorithms are used in many real-world applications in distributed or decentralized networks —
+
+✅ Blockchain and cryptocurrencies <br/>
+✅ Google page-rank <br/>
+✅ Load balancing etc…
 
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
