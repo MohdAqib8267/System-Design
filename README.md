@@ -243,6 +243,12 @@ Application 1 is not fault tolerant. If its database goes offline, all applicati
  solution: Make replicas of DB <br/>
 **Software Faults**: Multiple instances of software capable of doing the same work. For example, many modern applications make use of containerization platforms such as Kubernetes so that they can run multiple instances of software services. One reason for this is so that if one instance encounters an error or goes offline, traffic can be routed to other instances to maintain application functionality. <br/>
 **Human Errors**
+
+# What is Consensus in Distributed System?
+In a distributed system, multiple computers (known as nodes) are mutually connected with each other and collaborate with each other through message passing. Now, during computation, they need to agree upon a common value to coordinate among multiple processes. This phenomenon is known as Distributed Consensus.
+
+<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6do-COi_H0dqaWtu7zVJCw.png" />
+
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
