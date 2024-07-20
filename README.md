@@ -369,6 +369,60 @@ When efficiency in terms of bandwidth and server resources is a priority for app
 ![2cec4136-ba2c-433c-af8a-d137eaf2a53a_1952x1872](https://github.com/user-attachments/assets/21d8dfcb-c682-4907-9c6c-df14550b703e)
 
 
+
+# Synchronous vs Asynchronous Communication
+![682466c0-3abb-4f0b-8787-89447c04f9c5_1532x972](https://github.com/user-attachments/assets/03872787-3d34-4e8d-a381-e25abb5ae34e)
+
+## Synchronous Communications
+Synchronous communication is a communication pattern where the sender waits for the receiver to acknowledge or respond to the message before proceeding.
+<br/>
+This type of communication is often referred to as blocking or request-response communication.
+<br/>
+### Advantages:
+**Immediate Feedback:** Synchronous communications provide instant feedback, allowing for swift error detection and correction.
+<br/>
+**Simple Implementation:** Synchronous designs are often straightforward to implement, as the request and response occur in a single, continuous transaction.
+<br/>
+**Consistency:** Data consistency is easier to manage because updates are processed in order.
+<br/>
+### Disadvantages:
+**Blocking:** The sender is blocked until a response is received, potentially leading to resource waste and decreased system performance.
+<br/>
+**Tight Coupling:** Synchronous communications can create tight coupling between components, making it challenging to evolve or replace individual components without affecting the entire system.
+<br/>
+**Resource Intensive:** Each request must be fully processed before moving to the next, potentially leading to resource underutilization.
+<br/>
+### Use Cases:
+**Low-latency applications:** Synchronous communications are suitable for applications requiring real-time responses, such as video streaming or online gaming.
+<br/>
+<br/> Synchronous designs are ideal for straightforward transactions, like querying a database or fetching cached data.
+
+## Asynchronous Communications
+Asynchronous communication is a communication pattern where the sender does not wait for the receiver to process the message and can continue with other tasks. The receiver processes the message when it becomes available.
+<br/>
+### Advantages:
+**Non-Blocking:** The sender does not block and can continue executing other tasks after sending the message, reducing resource waste and improving system performance.
+<br/>
+**Loose Coupling:** The sender and receiver are loosely coupled, allowing them to operate independently.
+<br/>
+**Scalability:** Asynchronous communication enables better scalability as the sender and receiver can process messages at their own pace.
+<br/>
+
+
+### Disadvantages:
+**Complex Implementation:** Asynchronous designs can be more challenging to implement, as they require additional mechanisms for handling responses and errors.
+<br/>
+**Data Consistency:** Ensuring data consistency across different parts of the system can be more complex.
+
+### Use Cases:
+**High-throughput applications:** Asynchronous communications are suitable for applications requiring high throughput, such as message queues or task processing.
+<br/>
+**Decoupled systems:** Asynchronous designs are ideal for systems with multiple, independent components, like microservices architecture.
+<br/>
+**Long-running tasks:** Offloading non-urgent tasks to an asynchronous queue, like image processing or report generation, is ideal.
+<br/>
+**Event-driven architectures:** Asynchronous communication shines in systems where components react to real-time events, such as notifications.
+<br/>
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
