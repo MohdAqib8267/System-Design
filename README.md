@@ -278,6 +278,97 @@ Consensus algorithms are used in many real-world applications in distributed or 
 ✅ Google page-rank <br/>
 ✅ Load balancing etc…
 
+# Long-polling vs WebSockets
+## Understanding Real-Time Communication
+Real-time communication refers to the ability of a server to push information to a client as soon as it becomes available, without the client having to request it explicitly. <br/><br/>
+Long-Polling and WebSockets are two strategies to overcome this limitation.
+<br/>
+Real-time communication between clients and servers is essential for applications like chat applications, live sports updates, stock tickers, online gaming, and collaborative tools.
+
+## Long-polling
+Long-Polling is a technique where the client makes an HTTP request to the server, and the server holds the request open until new data is available.
+<br/>
+Once the server has new data, it responds to the client, which then immediately makes a new request. This creates a continuous connection for real-time updates.
+![3529dbe1-1e31-47ac-8e7b-955cc3803d5d_932x1004](https://github.com/user-attachments/assets/dc414077-1685-4085-bfe2-462981dc6e73)
+
+<br/>
+### How Long-polling Works
+1.The client sends a request to the server.
+<br/>
+2.The server doesn't immediately respond. Instead, it holds the request open and waits for data to become available.
+<br/>
+3.When data becomes available (or after a timeout), the server responds to the request.
+<br/>
+4.The client immediately sends another request, restarting the process.
+<br/>
+### Advantages
+**Simplicity:** Easy to implement with standard HTTP infrastructure.
+<br/>
+**Compatibility:** Works with existing firewalls and proxies without additional configuration.
+<br/>
+
+
+### Disadvantages
+**Latency:** Higher latency compared to WebSockets due to the time required to establish new HTTP connections.
+<br/>
+**Overhead:** Increased overhead from frequent HTTP requests and responses.
+<br/>
+**Scalability:** Harder to scale due to the number of open HTTP connections and resource consumption on the server.
+<br/>
+### When to Use Long-polling
+When you need to support older browsers or environments where WebSockets aren't available.
+<br/>
+For applications with infrequent updates where near real-time is sufficient.
+<br/>
+When working with existing infrastructure that doesn't support WebSockets.
+<br/>
+For simple applications where the added complexity of WebSockets isn't justified.
+
+## WebSockets
+WebSockets provide a full-duplex communication channel over a single, long-lived connection.
+<br/>
+Once the WebSocket connection is established, the server and client can send messages to each other independently and asynchronously, making it suitable for real-time, low-latency applications.
+![3a6f0751-b4a6-486a-86cb-9552c605544e_960x964](https://github.com/user-attachments/assets/d2a28933-f202-4cad-941f-04189eff15b3)
+### How WebSockets Work
+1.The client initiates a WebSocket connection through a process called the WebSocket handshake.
+<br/>
+2.Once the handshake is successful, the connection is upgraded from HTTP to WebSocket.
+<br/>
+3.Both the client and server can send messages to each other at any time.
+<br/>
+4.The connection remains open until either party decides to close it.
+<br/>
+### Advantages
+**True real-time:** Allows for genuine real-time communication with minimal latency.
+<br/>
+**Full-duplex communication:** Both client and server can send messages independently of each other.
+<br/>
+**Efficiency:** After the initial handshake, the overhead per message is very low.
+<br/>
+**Reduced server load**: The server doesn't need to handle and maintain multiple connections for the same client.
+<br/>
+### Disadvantages
+**Potential lack of support:** Not supported in some older browsers (though this is becoming less of an issue).
+<br/>
+**Proxies and firewalls:** Some proxies and firewalls may not handle WebSocket connections correctly.
+<br/>
+**Stateful:** The server needs to maintain the state of each connection, which can be memory-intensive with many concurrent connections.
+<br/>
+**Complexity:** Implementing WebSockets can be more complex than traditional HTTP requests.
+<br/>
+### When to Use WebSockets
+For applications requiring true real-time updates (e.g., live sports updates, real-time collaboration tools).
+<br/>
+When you need bi-directional communication between client and server.
+<br/>
+For applications with frequent updates where minimizing latency is crucial.
+<br/>
+When efficiency in terms of bandwidth and server resources is a priority for applications with many concurrent users.
+
+## Comparison: Long-polling vs WebSockets
+![2cec4136-ba2c-433c-af8a-d137eaf2a53a_1952x1872](https://github.com/user-attachments/assets/21d8dfcb-c682-4907-9c6c-df14550b703e)
+
+
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
