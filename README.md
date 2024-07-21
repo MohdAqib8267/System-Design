@@ -423,6 +423,11 @@ Asynchronous communication is a communication pattern where the sender does not 
 <br/>
 **Event-driven architectures:** Asynchronous communication shines in systems where components react to real-time events, such as notifications.
 <br/>
+
+# What's the difference between RPC and REST?
+Remote Procedure Call (RPC) and REST are two architectural styles in API design. APIs are mechanisms that enable two software components to communicate with each other using a set of definitions and protocols. Software developers use previously developed or third-party components to perform functions, so they don’t have to write everything from scratch. RPC APIs allow developers to call remote functions in external servers as if they were local to their software. For example, you can add chat functionality to your application by remotely calling messaging functions on another chat application. In contrast, REST APIs allow you to perform specific data operations on a remote server. For example, your application could insert or modify employee data on a remote server by using REST APIs.
+
+
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
