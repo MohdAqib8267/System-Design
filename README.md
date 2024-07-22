@@ -428,6 +428,44 @@ Asynchronous communication is a communication pattern where the sender does not 
 Remote Procedure Call (RPC) and REST are two architectural styles in API design. APIs are mechanisms that enable two software components to communicate with each other using a set of definitions and protocols. Software developers use previously developed or third-party components to perform functions, so they don’t have to write everything from scratch. RPC APIs allow developers to call remote functions in external servers as if they were local to their software. For example, you can add chat functionality to your application by remotely calling messaging functions on another chat application. In contrast, REST APIs allow you to perform specific data operations on a remote server. For example, your application could insert or modify employee data on a remote server by using REST APIs.
 
 
+# Content Delivery Networks (CDNs)
+Imagine you have built an app used by millions of users worldwide.
+<br/>
+Your app also serves video content, but all your videos are hosted in one geographical location.
+<br/>
+Due to the large physical distance, users in other locations experience significant latency and buffering while watching videos. This is expected since the data takes time to travel from the server to the client.
+<br/>
+One popular solution to this issue is to place these video files closer to user locations.
+<br/>
+This is what a Content Delivery Network (CDN) in Picture.
+![a09696e9-f98e-47bd-9eb9-08a20c60464d_5667x2834](https://github.com/user-attachments/assets/0c3996d9-7cde-480e-bbb7-ec43fd4838d3)
+### What is a CDN?
+A CDN is a geographically distributed network of servers that work together to deliver web content (like HTML pages, JavaScript files, stylesheets, images, and videos) to users based on their geographic location.
+<br/>
+The primary purpose of a CDN is to deliver content to end-users with high availability and performance by reducing the physical distance between the server and the user.
+<br/>
+When a user requests content from a website, the CDN redirects the request to the nearest server in its network, reducing latency and improving load times.
+### How Does a CDN Work?
+**Content Caching:** When a user requests content, the CDN caches this content in servers located closer to the user, known as edge servers. Subsequent requests for the same content are served from these edge servers, reducing the load on the origin server.
+<br/>
+**Content Delivery:** If the edge server has the requested content cached, it delivers it directly to the user. If not, it retrieves the content from the origin server, caches it for future requests, and then delivers it to the user.
+<br/>
+**Content is Refreshed:** CDNs periodically update cached content to ensure users receive the latest version.
+
+### Benefits of Using a CDN
+**Improved Website Load Times:** By serving content from servers closer to the user's geographic location, CDNs significantly reduce latency and improve website load times.
+<br/>
+**Reduced Bandwidth Costs:** By offloading traffic from the origin server, CDNs reduce bandwidth costs and server load, potentially lowering overall infrastructure expenses.
+<br/>
+**Increased Content Availability and Redundancy:** With content distributed across multiple servers, CDNs provide a failover mechanism that ensures content remains available even if one or more servers go offline.
+<br/>
+**Better User Experience:** Faster load times and increased reliability translate to a better user experience, which can lead to higher engagement and conversion rates.
+<br/>
+**Global Reach:** CDNs make it easier to deliver content to users worldwide, regardless of their location.
+<br/>
+**Scalability:** CDNs can handle traffic spikes more efficiently than traditional hosting, making them ideal for websites with fluctuating traffic patterns.
+### Popular CDN Providers
+Akamai, Clouflare, Google Cloud CDN,Amazon CloudFront
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
