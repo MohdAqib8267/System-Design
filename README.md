@@ -466,6 +466,43 @@ When a user requests content from a website, the CDN redirects the request to th
 **Scalability:** CDNs can handle traffic spikes more efficiently than traditional hosting, making them ideal for websites with fluctuating traffic patterns.
 ### Popular CDN Providers
 Akamai, Clouflare, Google Cloud CDN,Amazon CloudFront
+
+# HeartBeats: How Distributed Systems Stay Alive
+In a distributed system,suppose things fail.
+<br/>
+But, how do we know if a particular service is alive and working as expected?
+<br/>
+This is where heartbeats come into play.
+![ce69caff-3a6e-4a0d-ba9c-97f3c07d105d_1162x808](https://github.com/user-attachments/assets/0e81f645-137d-4e93-bb6f-2194322b61cd)
+
+## What exactly is a Heartbeat?
+> In distributed systems, a heartbeat is a periodic message sent from one component to another to monitor each other's health and status.
+Its primary purpose is to signal, "Hey, I'm still here and working!"
+<br />
+This signal is usually a small packet of data transmitted at regular intervals, typically ranging from seconds to minutes, depending on the system's requirements.
+<br />
+Without a heartbeat mechanism, it's hard to quickly detect failures in a distributed system, leading to:
+1.Delayed fault detection and recovery
+<br />
+2.Increased downtime and errors
+<br />
+3.Decreased overall system reliability
+## How Do Heartbeats Work?
+The heartbeat mechanism involves two primary components:
+<br />
+**Heartbeat sender (Node):** This is the node that sends periodic heartbeat signals.
+<br />
+**Heartbeat receiver (Monitor):** This component receives and monitors the heartbeat signals.
+<br />
+Here's a simplified overview of the process:
+<br />
+The node sends a heartbeat signal to the monitor at regular intervals (e.g., every 30 seconds).
+<br />
+The monitor receives the heartbeat signal and updates the node's status as "alive" or "available".
+<br />
+If the monitor doesn't receive a heartbeat signal within the expected timeframe, it marks the node as "unavailable" or "failed".
+<br />
+The system can then take appropriate actions, such as redirecting traffic, initiating failover procedures, or alerting administrators.
 # 1. What is CAP theorem?
 CAP(Consistency-Availability-Partition Tolerance) theorem says that a distributed system cannot guarantee C, A and P simultaneously. It can at max provide any 2 of the 3 guarantees. Let us understand this with the help of a distributed database system.
 
